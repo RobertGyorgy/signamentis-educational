@@ -1,7 +1,7 @@
-// ========================================
-// Cards Slider Navigation
-// ========================================
 document.addEventListener('DOMContentLoaded', function() {
+  // ========================================
+  // Cards Slider Navigation
+  // ========================================
   const cardsGrids = document.querySelectorAll('.cards-grid--slider');
   
   cardsGrids.forEach(function(grid) {
