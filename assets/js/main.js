@@ -5,11 +5,19 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileToggle = document.getElementById('mobileMenuToggle');
   const mobileVerticalMenu = document.querySelector('.menu-vertical--mobile');
   
+  function closeMobileMenu() {
+    if (!mobileToggle || !mobileVerticalMenu) return;
+    mobileToggle.classList.remove('nav__burger--open');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileVerticalMenu.classList.remove('menu-vertical--mobile--open');
+  }
+  
   // Handle mobile toggle on all pages
   if (mobileToggle && mobileVerticalMenu) {
     mobileToggle.addEventListener('click', function(e) {
       e.stopPropagation();
-      mobileToggle.classList.toggle('nav__burger--open');
+      const isOpen = mobileToggle.classList.toggle('nav__burger--open');
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       mobileVerticalMenu.classList.toggle('menu-vertical--mobile--open');
     });
     
@@ -17,16 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuLinks = mobileVerticalMenu.querySelectorAll('a');
     menuLinks.forEach(link => {
       link.addEventListener('click', function() {
-        mobileToggle.classList.remove('nav__burger--open');
-        mobileVerticalMenu.classList.remove('menu-vertical--mobile--open');
+        closeMobileMenu();
       });
     });
     
     // Close menu when clicking outside
     document.addEventListener('click', function(event) {
       if (!mobileToggle.contains(event.target) && !mobileVerticalMenu.contains(event.target)) {
-        mobileToggle.classList.remove('nav__burger--open');
-        mobileVerticalMenu.classList.remove('menu-vertical--mobile--open');
+        closeMobileMenu();
       }
     });
   }

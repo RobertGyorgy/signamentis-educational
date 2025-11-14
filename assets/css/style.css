@@ -443,60 +443,15 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
 
 .hero__mobile-menu-toggle {
   display: none;
-  position: fixed;
-  top: var(--spacing-md);
-  right: var(--spacing-md);
-  z-index: 1001;
-}
-
-/* Hide mobile menu toggle and mobile menu on landing page */
-.hero .hero__mobile-menu-toggle {
-  display: none !important;
-}
-
-.hero ~ .menu-vertical--mobile,
-.hero .menu-vertical--mobile {
-  display: none !important;
 }
 
 @media (max-width: 767px) {
-  .hero__mobile-menu-toggle {
-    display: none !important;
-  }
-  
-  .hero__mobile-menu-toggle .nav__burger {
+  .nav__burger {
     display: flex;
-    position: relative;
-    right: auto;
   }
   
-  /* Mobile menu - simple list */
   .nav__menu {
     display: none;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    max-width: 100vw;
-    background-color: var(--color-bg-secondary);
-    flex-direction: column;
-    padding: var(--spacing-lg);
-    gap: var(--spacing-md);
-    border-top: 1px solid var(--color-border);
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-base);
-    overflow-x: hidden;
-    box-sizing: border-box;
-  }
-  
-  .nav__menu--open {
-    display: flex;
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
   }
   
   .nav__social {
@@ -610,20 +565,20 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
 }
 
 .menu-vertical--mobile {
-  display: none !important;
+  display: none;
   position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  max-width: 100vw;
+  top: calc(64px + env(safe-area-inset-top, 0px));
+  left: var(--spacing-md);
+  right: var(--spacing-md);
   background-color: var(--color-bg-secondary);
   padding: var(--spacing-lg);
   gap: var(--spacing-md);
-  border-top: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-orange);
+  border-radius: var(--border-radius-lg);
   z-index: 999;
   flex-direction: column;
   align-items: flex-start;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 767px) {
@@ -632,13 +587,13 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
   }
   
   .menu-vertical--mobile.menu-vertical--mobile--open {
-    display: flex !important;
+    display: flex;
   }
 }
 
 @media (min-width: 768px) {
   .menu-vertical--mobile {
-    display: none !important;
+    display: none;
   }
 }
 
