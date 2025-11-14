@@ -1724,7 +1724,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
     font-size: 1.25rem;
     max-width: 150px;
   }
-  
+
   .hero {
     min-height: auto;
     height: auto;
@@ -1804,4 +1804,3 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
     text-align: center;
   }
 }
-
