@@ -1,45 +1,7 @@
 // ========================================
-// Mobile Navigation Toggle
+// Cards Slider Navigation
 // ========================================
 document.addEventListener('DOMContentLoaded', function() {
-  const mobileToggle = document.getElementById('mobileMenuToggle');
-  const mobileVerticalMenu = document.querySelector('.menu-vertical--mobile');
-  
-  function closeMobileMenu() {
-    if (!mobileToggle || !mobileVerticalMenu) return;
-    mobileToggle.classList.remove('nav__burger--open');
-    mobileToggle.setAttribute('aria-expanded', 'false');
-    mobileVerticalMenu.classList.remove('menu-vertical--mobile--open');
-  }
-  
-  // Handle mobile toggle on all pages
-  if (mobileToggle && mobileVerticalMenu) {
-    mobileToggle.addEventListener('click', function(e) {
-      e.stopPropagation();
-      const isOpen = mobileToggle.classList.toggle('nav__burger--open');
-      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      mobileVerticalMenu.classList.toggle('menu-vertical--mobile--open');
-    });
-    
-    // Close menu when clicking on a link
-    const menuLinks = mobileVerticalMenu.querySelectorAll('a');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        closeMobileMenu();
-      });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!mobileToggle.contains(event.target) && !mobileVerticalMenu.contains(event.target)) {
-        closeMobileMenu();
-      }
-    });
-  }
-  
-  // ========================================
-  // Cards Slider Navigation
-  // ========================================
   const cardsGrids = document.querySelectorAll('.cards-grid--slider');
   
   cardsGrids.forEach(function(grid) {
